@@ -1,15 +1,14 @@
-import { Character } from "./characters/Character.js";
 import { Wizard, Archer, Warrior } from "./characters/Heroes.js";
+import { Spider, Scorpion, Dragon } from "./characters/Enemies.js";
 import { Food } from "./foods/Food.js";
 import { Poison } from "./foods/superFoods.js";
-
-let id = 0;
 
 const croissant = new Food("🥐", 5);
 const poisonApple = new Poison("🍎", -2);
 const bexley = new Warrior("Bexley", 10);
 const jojo = new Wizard("Jojo", 15);
 document.body.innerHTML += bexley.view();
+document.body.innerHTML += croissant.view();
 document.body.innerHTML += poisonApple.view();
 document.body.innerHTML += jojo.view();
 
