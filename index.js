@@ -1,45 +1,3 @@
-/* 
-    Create a class Character for our RPG
-    The Character should have name, level and id properties
-    
-    It should also have its own view() method 
-        Which constructs & returns a string representing a div
-        With a class of "character"
-        The div should include the Character's Name/Level
-*/
-
-// name
-// restores
-// id
-
-/* 
-    Create 2 new classes, Archer🏹 & Warrior⚔️
-    Similar to Wizard, they should append the relevant emoji 
-    to the name
-    
-    Archers should have a unique property: Arrows
-        + arrows should be 3 times the Archer's level
-        + a new method: reload() which adds 1 arrow 
-  
-    Warriors should have a unique property: Strength
-        + strength should be 2.5 times the Warrior's level
-        + a new method: charge() which adds 1 to their strength 
-        
-    Create and display at least one Character 
-        from each new class
-*/
-
-/* 
-    Let's get creative, Create an extended class of your own! 
-    
-    It can be anything that extends our current Character class
-        following along with our Wizard/Archer/Warrior classes, or the Food class
-        as long as it has at least 1 unique property and method,
-        don't forget to "view" it on the dom!
-        
-    Share a url to the note of your creation with us on Discord!
-*/
-
 let id = 0;
 
 class Character {
@@ -49,8 +7,18 @@ class Character {
     this.id = id++;
   }
 
+  domElement() {
+    const domElement = document.getElementById(`character-${this.id}`);
+    if (domElement) {
+      return domElement;
+    }
+  }
+
   view(details = " ") {
-    return `<div class='character'> ${this.name} Lvl:${this.level} ${details}</div>`;
+    return `
+    <div class='character' id="character-${this.id}"> 
+    ${this.name} Lvl:${this.level} ${details}
+    </div>`;
   }
 }
 
@@ -106,8 +74,17 @@ class Food {
     this.id = id++;
   }
 
+  domElement() {
+    const domElement = document.getElementById(`food-${this.id}`);
+    if (domElement) {
+      return domElement;
+    }
+  }
+
   view() {
-    return `<div class='food'> ${this.name} </div>`;
+    return `<div class='food' id="food-${this.id}"> 
+    ${this.name} 
+    </div>`;
   }
 }
 
@@ -133,3 +110,7 @@ const jojo = new Wizard("Jojo", 15);
 document.body.innerHTML += bexley.view();
 document.body.innerHTML += poisonApple.view();
 document.body.innerHTML += jojo.view();
+
+console.log(poisonApple.domElement());
+console.log(bexley.domElement());
+console.log(jojo.domElement());
