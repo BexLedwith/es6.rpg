@@ -15,8 +15,5 @@ const scorpion = new Scorpion(5);
 const dragon = new Dragon(10);
 
 startBattle(bexley, jojo);
-// document.body.innerHTML += bexley.view();
-// document.body.innerHTML += jojo.view();
-// document.body.innerHTML += spider.view();
-// document.body.innerHTML += scorpion.view();
-// document.body.innerHTML += dragon.view();
+
+bexley.updateHitpoints(20);

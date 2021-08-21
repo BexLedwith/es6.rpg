@@ -9,6 +9,14 @@ export class Character {
     this.maxHitpoints = 4 * level;
   }
 
+  updateHitpoints(newHitpoints) {
+    this.hitpoints = newHitpoints;
+    let { id, hitpoints, maxHitpoints } = this;
+    document.getElementById(
+      `character-${id}-hitpoints`
+    ).innerHTML = `HP: ${hitpoints}/${maxHitpoints}`;
+  }
+
   domElement() {
     const domElement = document.getElementById(`character-${this.id}`);
     if (domElement) {
@@ -17,12 +25,13 @@ export class Character {
   }
 
   view(details = " ") {
+    let { name, level, id, hitpoints, maxHitpoints } = this;
     return `
       <div class='character' id="character-${this.id}"> 
-      <div>${this.name}</div> 
-      <div>Lvl:${this.level}</div> 
-      <div id="character-${this.id}-hitpoints">
-      HP: ${this.hitpoints} / ${this.maxHitpoints}
+      <div>${name}</div> 
+      <div>Lvl:${level}</div> 
+      <div id="character-${id}-hitpoints">
+      HP: ${hitpoints} / ${maxHitpoints}
       </div>
       <div> ${details} </div>
       </div>
