@@ -1,4 +1,4 @@
-export function startBattle(player, opponent) {
+export const startBattle = (player, opponent) => {
   document.body.innerHTML = `
     ${player.view()} 
     <button id="attack-button"> Attack </button>
@@ -6,7 +6,7 @@ export function startBattle(player, opponent) {
 
   document.getElementById("attack-button").onclick = () =>
     attack(player, opponent);
-}
+};
 
 const attack = (attacker, target) => {
   let newHitpoints = target.hitpoints - attacker.level;
