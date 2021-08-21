@@ -1,5 +1,5 @@
-import { Character } from "./Character.js";
-import { Wizard, Archer, Warrior } from "./Heroes.js";
+import { Character } from "./characters/Character.js";
+import { Wizard, Archer, Warrior } from "./characters/Heroes.js";
 import { Food } from "./Food.js";
 import { Poison } from "./superFoods.js";
 
