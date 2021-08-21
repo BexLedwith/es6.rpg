@@ -3,28 +3,35 @@ export function startBattle(player, opponent) {
     ${player.view()} 
     <button id="attack-button"> Attack </button>
     ${opponent.view()}`;
+
+  document.getElementById("attack-button").onclick = () =>
+    attack(player, opponent);
 }
 
-export function attack(attacker, target) {
+const attack = (attacker, target) => {
   let newHitpoints = target.hitpoints - attacker.level;
   target.updateHitpoints(newHitpoints);
 
-  if (isKnockedOut(attacker) || isKnockedOut(target)) {
+  if (isKnockedOut(target)) {
     endBattle(attacker);
   }
-}
+};
 
-export function isKnockedOut(character) {
+const isKnockedOut = (character) => {
   if (character.hitpoints <= 0) {
     return true;
   }
-}
+};
 
-export function endBattle(character) {
-  document.body.innerHTML = `
+const endBattle = (character) => {
+  if (isKnockedOut(character)) {
+    document.body.innerHTML = `
   ${character.view()}
   <button id="new-game">Start Another Battle</button>`;
-  if (!isKnockedOut(character)) {
+  } else {
     character.level++;
+    document.body.innerHTML = `
+  ${character.view()}
+  <button id="new-game">Start Another Battle</button>`;
   }
-}
+};
