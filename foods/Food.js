@@ -15,8 +15,9 @@ export class Food {
   }
 
   view() {
-    return `<div class='food' id="food-${this.id}"> 
-      ${this.name} 
+    let { id, name } = this;
+    return `<div class='food' id="food-${id}"> 
+      ${name} 
       </div>`;
   }
 }

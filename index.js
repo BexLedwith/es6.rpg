@@ -3,7 +3,7 @@ import { Spider, Scorpion, Dragon } from "./characters/Enemies.js";
 import { Food } from "./foods/Food.js";
 import { Poison } from "./foods/superFoods.js";
 
-import { startBattle } from "./combat.js";
+import { startBattle, attack, isKnockedOut, endBattle } from "./combat.js";
 
 const croissant = new Food("🥐", 5);
 const poisonApple = new Poison("🍎", -2);
