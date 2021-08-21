@@ -17,21 +17,13 @@ const attack = (attacker, target) => {
   }
 };
 
-const isKnockedOut = (character) => {
-  if (character.hitpoints <= 0) {
-    return true;
-  }
-};
+const isKnockedOut = (character) => character.hitpoints <= 0;
 
 const endBattle = (character) => {
-  if (isKnockedOut(character)) {
-    document.body.innerHTML = `
-  ${character.view()}
-  <button id="new-game">Start Another Battle</button>`;
-  } else {
+  if (!isKnockedOut(character)) {
     character.level++;
-    document.body.innerHTML = `
+  }
+  document.body.innerHTML = `
   ${character.view()}
   <button id="new-game">Start Another Battle</button>`;
-  }
 };

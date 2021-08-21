@@ -7,6 +7,9 @@ import { startBattle } from "./combat.js";
 
 const croissant = new Food("🥐", 5);
 const poisonApple = new Poison("🍎", -2);
+const bread = new Food("🍞", 10);
+const pizza = new Food("🍕", 9);
+
 const bexley = new Warrior("Bexley", 10);
 const jojo = new Wizard("Jojo", 15);
 
@@ -14,4 +17,6 @@ const spider = new Spider(2);
 const scorpion = new Scorpion(5);
 const dragon = new Dragon(10);
 
+bexley.pickup(croissant);
+bexley.getInventoryView();
 startBattle(bexley, jojo);

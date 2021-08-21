@@ -7,6 +7,11 @@ export class Character {
     this.id = id++;
     this.hitpoints = 4 * level;
     this.maxHitpoints = 4 * level;
+    this.inventory = [];
+  }
+
+  pickup(item) {
+    this.inventory.push(item);
   }
 
   updateHitpoints(newHitpoints) {
@@ -24,6 +29,15 @@ export class Character {
     }
   }
 
+  getInventoryView() {
+    let inventoryView = ``;
+
+    for (const item of this.inventory) {
+      inventoryView += item.view();
+    }
+    return inventoryView;
+  }
+
   view(details = " ") {
     let { name, level, id, hitpoints, maxHitpoints } = this;
     return `
@@ -33,6 +47,7 @@ export class Character {
       <div id="character-${id}-hitpoints">
       HP: ${hitpoints} / ${maxHitpoints}
       </div>
+      <div id="character-${id}-inventory"></div>
       <div> ${details} </div>
       </div>
       
