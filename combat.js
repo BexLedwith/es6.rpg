@@ -1,6 +1,6 @@
-export startBattle(player, opponent) {
-    return `
+export function startBattle(player, opponent) {
+  document.body.innerHTML = `
     ${player.view()} 
-    <button id="attach-button"> Attack </button>
-    ${opponent.view()}`
+    <button id="attack-button"> Attack </button>
+    ${opponent.view()}`;
 }

@@ -36,10 +36,6 @@ export class Spider extends Character {
   }
 
   bite() {}
-
-  view() {
-    return super.view();
-  }
 }
 
 export class Scorpion extends Character {
@@ -48,10 +44,6 @@ export class Scorpion extends Character {
   }
 
   sting() {}
-
-  view() {
-    return super.view();
-  }
 }
 
 export class Dragon extends Character {
@@ -60,8 +52,4 @@ export class Dragon extends Character {
   }
 
   fireBreath() {}
-
-  view() {
-    return super.view();
-  }
 }

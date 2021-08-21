@@ -19,11 +19,14 @@ export class Character {
   view(details = " ") {
     return `
       <div class='character' id="character-${this.id}"> 
-      ${this.name} Lvl:${this.level} ${details}
-      </div>
+      <div>${this.name}</div> 
+      <div>Lvl:${this.level}</div> 
       <div id="character-${this.id}-hitpoints">
-      ${this.hitpoints} / ${this.maxHitpoints}
+      HP: ${this.hitpoints} / ${this.maxHitpoints}
       </div>
+      <div> ${details} </div>
+      </div>
+      
       `;
   }
 }
