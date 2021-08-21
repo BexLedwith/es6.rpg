@@ -4,6 +4,7 @@ export const startBattle = (player, opponent) => {
     <button id="attack-button"> Attack </button>
     ${opponent.view()}`;
 
+  player.initializeInventory();
   document.getElementById("attack-button").onclick = () =>
     attack(player, opponent);
 };

@@ -14,6 +14,17 @@ export class Character {
     this.inventory.push(item);
   }
 
+  drop(droppedItem) {
+    let inventory = [];
+    for (let item of this.inventory) {
+      if (droppedItem.id != item.id) {
+        inventory.push(item);
+      }
+    }
+
+    this.inventory = inventory;
+  }
+
   updateHitpoints(newHitpoints) {
     this.hitpoints = newHitpoints;
     let { id, hitpoints, maxHitpoints } = this;
@@ -29,10 +40,25 @@ export class Character {
     }
   }
 
+  initializeInventory() {
+    for (let item of this.inventory) {
+      item.domElement().onclick = () => {
+        let updatedHitpoints = this.hitpoints + item.restores;
+        this.updateHitpoints(updatedHitpoints);
+        this.drop(item);
+        let inventoryDom = document.getElementById(
+          `character-${this.id}-inventory`
+        );
+        inventoryDom.innerHTML = this.getInventoryView();
+        this.initializeInventory();
+      };
+    }
+  }
+
   getInventoryView() {
     let inventoryView = ``;
 
-    for (const item of this.inventory) {
+    for (let item of this.inventory) {
       inventoryView += item.view();
     }
     return inventoryView;
@@ -47,7 +73,9 @@ export class Character {
       <div id="character-${id}-hitpoints">
       HP: ${hitpoints} / ${maxHitpoints}
       </div>
-      <div id="character-${id}-inventory"></div>
+      <div class="inventory" id="character-${id}-inventory">
+        ${this.getInventoryView()}
+      </div>
       <div> ${details} </div>
       </div>
       

@@ -18,5 +18,7 @@ const scorpion = new Scorpion(5);
 const dragon = new Dragon(10);
 
 bexley.pickup(croissant);
-bexley.getInventoryView();
-startBattle(bexley, jojo);
+bexley.pickup(bread);
+bexley.pickup(poisonApple);
+bexley.pickup(pizza);
+startBattle(bexley, dragon);
