@@ -28,3 +28,22 @@ const endBattle = (character) => {
   ${character.view()}
   <button id="new-game">Start Another Battle</button>`;
 };
+
+/* 
+    Challenge:
+    
+    Write a new function called startDungeon(player, dungeon)
+        It should take in an array (dungeon) that is 
+        made up of at least 5 Enemy objects, followed
+        by 1 Food object as a prize, and of course the player
+    For now, simply use array destructuring in this function
+        to store the first Enemy in a new variable, 
+        call startBattle on it and the player 
+        and then console.log() out the rest of the dungeon
+*/
+
+export const startDungeon = (player, dungeon) => {
+  let [currentEnemy, ...restOf] = dungeon;
+  startBattle(player, currentEnemy);
+  console.log(restOf);
+};
