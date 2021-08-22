@@ -6,17 +6,13 @@ export const startBattle = (player, opponent) => {
 
   player.initializeInventory();
   player.prepareForBattle();
-  document.getElementById("attack-button").onclick = () =>
-    attack(player, opponent);
-};
+  document.getElementById("attack-button").onclick = () => {
+    player.attack(opponent);
 
-const attack = (attacker, target) => {
-  let newHitpoints = target.hitpoints - attacker.level;
-  target.updateHitpoints(newHitpoints);
-
-  if (isKnockedOut(target)) {
-    endBattle(attacker);
-  }
+    if (isKnockedOut(opponent)) {
+      endBattle(player);
+    }
+  };
 };
 
 const isKnockedOut = (character) => character.hitpoints <= 0;

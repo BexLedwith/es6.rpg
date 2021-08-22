@@ -14,6 +14,11 @@ export class Character {
     Object.assign(this, myCharacter);
   }
 
+  attack(target) {
+    let newHitpoints = target.hitpoints - this.level;
+    target.updateHitpoints(newHitpoints);
+  }
+
   pickup(item) {
     this.inventory.push(item);
   }
