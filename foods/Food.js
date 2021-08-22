@@ -2,9 +2,12 @@ let id = 0;
 
 export class Food {
   constructor(name, restores) {
-    this.name = name;
-    this.restores = restores;
-    this.id = id++;
+    let myFood = { name, restores, id };
+    id++;
+    Object.assign(this, myFood);
+    // this.name = name;
+    // this.restores = restores;
+    // this.id = id++;
   }
 
   domElement() {
