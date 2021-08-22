@@ -44,6 +44,12 @@ export class Character {
     }
   }
 
+  levelUp() {
+    this.level++;
+    this.maxHitpoints = 4 * this.level;
+    this.hitpoints = this.maxHitpoints;
+  }
+
   initializeInventory() {
     for (let item of this.inventory) {
       item.domElement().onclick = () => {
@@ -80,7 +86,7 @@ export class Character {
       <div class="inventory" id="character-${id}-inventory">
         ${this.getInventoryView()}
       </div>
-      <div> ${details} </div>
+      ${details} 
       </div>
       
       `;
