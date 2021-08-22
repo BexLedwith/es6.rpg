@@ -2,12 +2,16 @@ let id = 0;
 
 export class Character {
   constructor(name, level, hitpoints, maxHitpoints) {
-    this.name = name;
-    this.level = level;
-    this.id = id++;
-    this.hitpoints = 4 * level;
-    this.maxHitpoints = 4 * level;
-    this.inventory = [];
+    let myCharacter = {
+      name,
+      level,
+      id,
+      hitpoints: 4 * level,
+      maxHitpoints: 4 * level,
+      inventory: [],
+    };
+    id++;
+    Object.assign(this, myCharacter);
   }
 
   pickup(item) {

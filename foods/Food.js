@@ -5,9 +5,6 @@ export class Food {
     let myFood = { name, restores, id };
     id++;
     Object.assign(this, myFood);
-    // this.name = name;
-    // this.restores = restores;
-    // this.id = id++;
   }
 
   domElement() {
