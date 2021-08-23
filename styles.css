@@ -60,6 +60,11 @@ button {
   border-radius: 0.3rem;
 }
 
-button:focus {
+button:focus,
+button:hover {
   outline: 0;
+  background-color: black;
+  color: lightcyan;
+  font-size: 1.8rem;
+  cursor: pointer;
 }
