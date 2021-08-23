@@ -14,7 +14,7 @@ const sandwich = new Food("🥪", 10);
 const falafel = new Food("🧆", 7);
 
 const bexley = new Archer("Bexley", 1);
-const jojo = new Wizard("Jojo", 2);
+const jojo = new Wizard("Jojo", 1);
 
 const spider = new Spider(2);
 const scorpion = new Scorpion(5);

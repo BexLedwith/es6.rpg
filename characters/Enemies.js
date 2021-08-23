@@ -5,7 +5,14 @@ export class Spider extends Character {
     super("Spider 🕷", level);
   }
 
-  bite() {}
+  attack(target) {
+    this.bite(target);
+  }
+
+  bite(target) {
+    let newHitpoints = target.hitpoints - this.maxHitpoints / 8;
+    target.updateHitpoints(newHitpoints);
+  }
 }
 
 export class Scorpion extends Character {
@@ -13,7 +20,14 @@ export class Scorpion extends Character {
     super("Scorpion 🦂", level);
   }
 
-  sting() {}
+  attack(target) {
+    this.sting(target);
+  }
+
+  sting(target) {
+    let newHitpoints = target.hitpoints - this.maxHitpoints / 4;
+    target.updateHitpoints(newHitpoints);
+  }
 }
 
 export class Dragon extends Character {
@@ -21,5 +35,11 @@ export class Dragon extends Character {
     super("Dragon 🐉", level);
   }
 
-  fireBreath() {}
+  attack(target) {
+    this.fireBreath(target);
+  }
+  fireBreath(target) {
+    let newHitpoints = target.hitpoints - this.maxHitpoints / 2;
+    target.updateHitpoints(newHitpoints);
+  }
 }

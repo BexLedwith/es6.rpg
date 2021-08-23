@@ -6,6 +6,12 @@ export class Wizard extends Character {
     this.mana = 4 * level;
   }
 
+  attack(target) {
+    let newHitpoints = target.hitpoints - this.level * 1.5;
+    target.updateHitpoints(newHitpoints);
+    this.updateMana(this.mana - 2);
+  }
+
   restore() {
     this.updateMana(this.mana + 1);
   }
@@ -44,6 +50,12 @@ export class Archer extends Character {
     this.arrows = 3 * level;
   }
 
+  attack(target) {
+    let newHitpoints = target.hitpoints - this.level;
+    target.updateHitpoints(newHitpoints);
+    this.updateArrows(this.arrows - 1);
+  }
+
   reload() {
     this.updateArrows(this.arrows + 1);
   }
@@ -80,6 +92,12 @@ export class Warrior extends Character {
   constructor(name, level) {
     super(`${name} ⚔️`, level);
     this.strength = 2.5 * level;
+  }
+
+  attack(target) {
+    let newHitpoints = target.hitpoints - this.strength;
+    target.updateHitpoints(newHitpoints);
+    this.updateStrength(this.strength - 1);
   }
 
   charge() {

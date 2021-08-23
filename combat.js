@@ -12,6 +12,12 @@ export const startBattle = (player, opponent) => {
     if (isKnockedOut(opponent)) {
       endBattle(player);
     }
+
+    opponent.attack(player);
+
+    if (isKnockedOut(player)) {
+      endBattle(opponent);
+    }
   };
 };
 
