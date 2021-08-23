@@ -123,7 +123,7 @@ export class Warrior extends Character {
   view() {
     return super.view(
       `
-      <div id="character=${this.id}-strength">Strength: ${this.strength}</div>
+      <div id="character-${this.id}-strength">Strength: ${this.strength}</div>
       <button id="character-${this.id}-charge">Charge</div>
       `
     );
