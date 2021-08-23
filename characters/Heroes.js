@@ -51,8 +51,7 @@ export class Archer extends Character {
   }
 
   attack(target) {
-    let newHitpoints = target.hitpoints - this.level;
-    target.updateHitpoints(newHitpoints);
+    super.attack(target);
     this.updateArrows(this.arrows - 1);
   }
 
