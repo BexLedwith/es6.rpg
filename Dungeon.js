@@ -47,6 +47,9 @@ export class Dungeon {
         document.body.innerHTML = `
   ${hero.view()}
   <button id="new-game">Sorry, Try Again</button>`;
+
+        document.getElementById("new-game").onclick = () =>
+          window.location.reload();
       }
     };
   }

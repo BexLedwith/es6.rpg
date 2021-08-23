@@ -22,6 +22,7 @@ body {
   border-radius: 0.4rem;
   flex-wrap: wrap;
   width: 100%;
+  cursor: pointer;
 }
 
 .inventory {
@@ -67,4 +68,8 @@ button:hover {
   color: lightcyan;
   font-size: 1.8rem;
   cursor: pointer;
+}
+
+#new-game {
+  background-color: red;
 }
